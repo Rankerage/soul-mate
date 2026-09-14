@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.wav
+*.txt
+*.log
+.env
+tmp/
+whisper.cpp/
+models/*.bin
+models/*.ggml
