@@ -6,8 +6,16 @@ from models import GeofencePoint
 
 @dataclass
 class AppConfig:
-    version: str = "1.0.0"
-    app_name: str = "Soul Scribe (Omi-Powered)"
+    version: str = "1.0.1"
+    app_name: str = "Soul Mate"
+    slogans: List[str] = field(
+        default_factory=lambda: [
+            "soul scribe",
+            "self-hacker",
+            "alternative of gemini live",
+            "active cognitive hacking"
+        ]
+    )
 
     # Gemini API 설정
     gemini_api_key: str = field(
@@ -17,19 +25,19 @@ class AppConfig:
 
     # 웨이크워드 및 플러그인 트리거 목록
     wake_words: List[str] = field(
-        default_factory=lambda: ['호들아', '해킹해', '호들', '해킹', '영혼아', '소울아', '헤이오미', '오미야']
+        default_factory=lambda: ['소울메이트', '메이트야', '호들아', '해킹해', '호들', '해킹', '영혼아', '헤이오미', '오미야']
     )
 
     # Obsidian 호환 저장 디렉토리
     vault_dir: Path = field(
-        default_factory=lambda: Path(os.getenv('SOUL_SCRIBE_VAULT', os.path.expanduser('~/storage/shared/Documents/SoulScribe')))
+        default_factory=lambda: Path(os.getenv('SOUL_MATE_VAULT', os.path.expanduser('~/storage/shared/Documents/SoulMate')))
     )
 
     # Omi 실시간 오디오 캡처 설정
     audio_chunk_seconds: int = 5
     sample_rate: int = 16000
     temp_audio_path: Path = field(
-        default_factory=lambda: Path(os.getenv('TMPDIR', '/tmp')) / 'soul_scribe_chunk.wav'
+        default_factory=lambda: Path(os.getenv('TMPDIR', '/tmp')) / 'soul_mate_chunk.wav'
     )
 
     # whisper.cpp 온디바이스 엔진 경로

@@ -21,7 +21,6 @@ class MemoryManager:
         self.current_memory.segments.append(seg)
         self.current_memory.location = location
 
-        # Obsidian 일별 마크다운 파일에 실시간 스트림 기록
         self._append_stream_to_file(seg, location)
 
     def _append_stream_to_file(self, seg: TranscriptSegment, location: LocationData):
@@ -30,13 +29,13 @@ class MemoryManager:
 
         if not md_path.exists():
             frontmatter = f"""---
-title: Soul Scribe Daily Stream ({today_str})
+title: Soul Mate Daily Stream ({today_str})
 created: {today_str}
 type: omi-lifestream-vault
-tags: [omi, soul-scribe, obsidian-vault, ai-memories]
+tags: [soul-mate, soul-scribe, self-hacker, gemini-live-alternative, active-cognitive-hacking, obsidian-vault]
 ---
 
-# 🎙️ Soul Scribe (Omi Stream): {today_str}
+# 🎙️ Soul Mate Lifestream: {today_str}
 
 """
             md_path.write_text(frontmatter, encoding="utf-8")
@@ -49,6 +48,6 @@ tags: [omi, soul-scribe, obsidian-vault, ai-memories]
         today_str = datetime.now().strftime("%Y-%m-%d")
         now_time = datetime.now().strftime("%H:%M:%S")
         md_path = self.config.vault_dir / f"{today_str}.md"
-        entry = f"- **[{now_time}]** ⚡ **[Soul Scribe / Omi Response]**\n  - *User*: {query}\n  - *AI*: {response}\n"
+        entry = f"- **[{now_time}]** ⚡ **[Soul Mate Response]**\n  - *User*: {query}\n  - *Soul Mate*: {response}\n"
         with open(md_path, "a", encoding="utf-8") as f:
             f.write(entry)

@@ -12,7 +12,12 @@ from plugins import WakeWordPlugin
 
 def main():
     print("=" * 65)
-    print("🔮 Soul Scribe v1.0.0 (Omi-Powered Autonomous AI Companion)")
+    print("🔮 Soul Mate (소울 메이트) - Autonomous Cognitive AI Companion")
+    print("✨ Slogans:")
+    print("   • soul scribe")
+    print("   • self-hacker")
+    print("   • alternative of gemini live")
+    print("   • active cognitive hacking")
     print("=" * 65)
 
     config = AppConfig()
@@ -22,7 +27,7 @@ def main():
     location_tracker.start()
     print("📍 Location Tracker active.")
 
-    # 2. 오디오 옵저버 및 Omi 메모리 매니저
+    # 2. 오디오 옵저버 및 메모리 매니저
     observer = AudioObserver(config)
     memory_manager = MemoryManager(config)
     print(f"🎙️ Audio Observer ready. (Obsidian Vault: {config.vault_dir})")
@@ -30,18 +35,18 @@ def main():
     # 3. Gemini 및 TTS 엔진
     gemini = GeminiEngine(config)
     tts = TTSSpeaker()
-    print(f"🧠 Gemini Engine online (Model: {config.gemini_model}).")
+    print(f"🧠 Gemini Brain connected (Model: {config.gemini_model}).")
 
-    # 4. Omi 플러그인 등록
+    # 4. 플러그인 등록
     wakeword_plugin = WakeWordPlugin(
         wake_words=config.wake_words,
         handler=lambda query, loc: gemini.ask(query, loc)
     )
-    print(f"🎯 Omi Trigger Plugins loaded. Wake-words: {config.wake_words}")
+    print(f"🎯 Wake-words: {config.wake_words}")
     print("=" * 65)
-    print("🚀 Soul Scribe 무한 기록 및 청취 루프 시작 (종료: Ctrl+C)\n")
+    print("🚀 Soul Mate 무한 감시 및 청취 루프 시작 (종료: Ctrl+C)\n")
 
-    tts.speak("소울 스크라이브 일점영 버전 가동을 시작합니다.")
+    tts.speak("소울 메이트 인지 해킹 시스템을 가동합니다.")
 
     try:
         while True:
@@ -60,20 +65,20 @@ def main():
 
             print(f"[{datetime.now().strftime('%H:%M:%S')}] 🗣️ [Transcript]: "{transcript}"")
 
-            # 3) Omi Memory & Obsidian Vault 누적
+            # 3) Memory & Obsidian Vault 누적
             memory_manager.add_transcript(transcript, curr_loc)
 
-            # 4) Omi 플러그인 이벤트 검사
+            # 4) 플러그인 트리거 검사
             if wakeword_plugin.on_transcript(transcript, curr_loc):
                 temp = gemini.calculate_chaos_temperature(curr_loc)
-                print(f"\n⚡ [OMI WAKE-WORD TRIGGERED] "{transcript}"")
+                print(f"\n⚡ [SOUL MATE TRIGGERED] "{transcript}"")
                 print(f"🌌 Chaos Logic: Location={curr_loc.zone_name} | Temperature={temp}")
                 
                 tts.speak("네, 말씀하세요.", wait=True)
 
-                # Gemini 추론
+                # Gemini 인지 해킹 추론
                 response = wakeword_plugin.execute(transcript, curr_loc)
-                print(f"🤖 [Soul Scribe Response]: {response}")
+                print(f"🤖 [Soul Mate Response]: {response}")
 
                 # 음성 피드백 & 메모리 기록
                 tts.speak(response, wait=True)
@@ -81,9 +86,9 @@ def main():
                 print("--- 스트림 루프 계속 ---\n")
 
     except KeyboardInterrupt:
-        print("\n🛑 Soul Scribe 종료 중...")
+        print("\n🛑 Soul Mate 종료 중...")
         location_tracker.stop()
-        tts.speak("소울 스크라이브가 안전하게 종료되었습니다.")
+        tts.speak("소울 메이트가 안전하게 종료되었습니다.")
         print("👋 완료.")
 
 if __name__ == '__main__':

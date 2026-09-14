@@ -2,7 +2,8 @@
 set -e
 
 echo "============================================="
-echo "🔮 Soul Scribe Termux 원클릭 환경 설치 스크립트"
+echo "🔮 Soul Mate Termux 원클릭 환경 설치 스크립트"
+echo "✨ soul scribe | self-hacker | alternative of gemini live | active cognitive hacking"
 echo "============================================="
 
 # 1. Termux 패키지 업데이트 및 기본 빌드 도구 설치
@@ -32,17 +33,17 @@ echo "📥 Whisper Tiny 모델 다운로드 중..."
 bash ./models/download-ggml-model.sh tiny
 
 # 6. 환경변수 및 디렉토리 설정
-mkdir -p ~/storage/shared/Documents/SoulScribe
+mkdir -p ~/storage/shared/Documents/SoulMate
 
 echo ""
 echo "============================================="
-echo "✅ Soul Scribe 환경 설정 완료!"
+echo "✅ Soul Mate 환경 설정 완료!"
 echo ""
 echo "[실행 전 준비사항]"
 echo "1. Gemini API 키 등록:"
 echo "   export GEMINI_API_KEY=\"your_gemini_api_key_here\""
 echo "2. Termux 배터리 최적화 해제 및 Wake-lock 적용:"
 echo "   termux-wake-lock"
-echo "3. Soul Scribe 실행:"
+echo "3. Soul Mate 실행:"
 echo "   python soul_scribe.py"
 echo "============================================="
