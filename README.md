@@ -66,8 +66,8 @@ soul-scribe/
 ### 2. 원클릭 환경 구축
 ```bash
 # 1) 저장소 클론
-git clone https://github.com/Rankerage/soul-scribe.git
-cd soul-scribe
+git clone https://github.com/Rankerage/soul-mate.git
+cd soul-mate
 
 # 2) 권한 부여 및 원클릭 빌드 실행
 chmod +x setup_termux.sh
